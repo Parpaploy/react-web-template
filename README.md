@@ -52,3 +52,11 @@ export default tseslint.config({
   },
 })
 ```
+
+
+--- Edit on main.tsx in 
+const allI18nResources = [
+  getTemplateI18nResource("template"),
+  getHomepageI18nResource("homepage"),
+]; (add)
+and in each page rename in useTranslation("homepage")
