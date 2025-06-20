@@ -1,17 +1,39 @@
-import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router-dom";
+import LanguagePopup from "./languge-popup";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const { i18n } = useTranslation();
+
+  const [isPopup, setIsPopup] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>("en");
+
+  function getFlagClass(language: string) {
+    switch (language) {
+      case "en":
+        return "fi fi-gb";
+      case "th":
+        return "fi fi-th";
+      default:
+        return "fi fi-gb";
+    }
+  }
+
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, [i18n.language]);
+
   return (
     <>
       <div className="w-full min-h-[10svh] bg-slate-300 flex justify-between items-center">
-        <button onClick={() => i18n.changeLanguage("en")}>
-          Switch to English
-        </button>
-        <button onClick={() => i18n.changeLanguage("th")}>
-          Switch to Thai
-        </button>
+        <button
+          className={`!w-10 !h-10 ${getFlagClass(language)} fis rounded-full`}
+          onClick={() => {
+            setIsPopup(!isPopup);
+          }}
+        />
+        {isPopup && <LanguagePopup />}
       </div>
 
       <Outlet />
