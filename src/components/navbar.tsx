@@ -26,14 +26,16 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full min-h-[10svh] bg-slate-300 flex justify-between items-center">
+      <div className="w-full min-h-[10svh] bg-slate-300 flex justify-between items-center relative p-5">
+        <div></div>
+
         <button
           className={`!w-10 !h-10 ${getFlagClass(language)} fis rounded-full`}
           onClick={() => {
             setIsPopup(!isPopup);
           }}
         />
-        {isPopup && <LanguagePopup />}
+        {isPopup && <LanguagePopup setIsPopup={setIsPopup} />}
       </div>
 
       <Outlet />

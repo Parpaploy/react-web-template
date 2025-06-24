@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
+import { ChangeLanguage } from "../functions/language-function";
 import { useTranslation } from "react-i18next";
 
-export default function LanguagePopup() {
+export default function LanguagePopup({
+  setIsPopup,
+}: {
+  setIsPopup: (isPopup: boolean) => void;
+}) {
   const { i18n } = useTranslation();
 
-  const [language, setLanguage] = useState<string>("en");
-
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language]);
-
   return (
-    <div>
+    <div className="absolute top-[10svh] right-2.5 bg-black w-15 gap-5 flex flex-col justify-center items-center p-3">
       <button
         className="!w-10 !h-10 fi fi fi-gb fis rounded-full"
         onClick={() => {
-          setLanguage("en");
+          ChangeLanguage(i18n, "en", setIsPopup);
         }}
       />
       <button
         className="!w-10 !h-10 fi fi-th fis rounded-full"
         onClick={() => {
-          setLanguage("th");
+          ChangeLanguage(i18n, "th", setIsPopup);
         }}
       />
     </div>
