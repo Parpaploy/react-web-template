@@ -2,23 +2,13 @@ import { Outlet } from "react-router-dom";
 import LanguagePopup from "./languge-popup";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getFlagClass } from "../functions/language-function";
 
 export default function Navbar() {
   const { i18n } = useTranslation();
 
   const [isPopup, setIsPopup] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>("en");
-
-  function getFlagClass(language: string) {
-    switch (language) {
-      case "en":
-        return "fi fi-gb";
-      case "th":
-        return "fi fi-th";
-      default:
-        return "fi fi-gb";
-    }
-  }
 
   useEffect(() => {
     setLanguage(i18n.language);
