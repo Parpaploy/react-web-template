@@ -6,11 +6,11 @@ export default function Homepage() {
   const currentLanguage = i18n.language;
 
   return (
-    <div>
-      <h1>{t("header")}</h1>
-      <p>Homepage</p>
+    <div className="flex flex-col justify-start items-center w-full h-screen">
+      <h1 className="font-extrabold text-4xl">{t("header")}</h1>
+      <h2 className="font-bold text-2xl">Homepage</h2>
 
-      <p>Current Language: {currentLanguage}</p>
+      <p className="font-medium text-xl">Current Language: {currentLanguage}</p>
     </div>
   );
 }

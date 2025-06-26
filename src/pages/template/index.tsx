@@ -5,7 +5,7 @@ export default function Template() {
   const currentLanguage = i18n.language;
 
   return (
-    <div>
+    <div className="w-full h-screen">
       <h1>{t("header")}</h1>
 
       <p>Current Language: {currentLanguage}</p>
