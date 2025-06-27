@@ -1,7 +1,7 @@
 import { ChangeLanguage } from "../functions/language-function";
 import { useTranslation } from "react-i18next";
 
-export default function LanguagePopup({
+export default function LanguageDropdown({
   setIsPopup,
 }: {
   setIsPopup: (isPopup: boolean) => void;

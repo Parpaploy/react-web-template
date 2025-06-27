@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import LanguagePopup from "./languge-popup";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getFlagClass } from "../functions/language-function";
+import LanguageDropdown from "./languge-dropdown";
 
 export default function Navbar() {
   const { i18n } = useTranslation();
@@ -25,7 +25,7 @@ export default function Navbar() {
             setIsPopup(!isPopup);
           }}
         />
-        {isPopup && <LanguagePopup setIsPopup={setIsPopup} />}
+        {isPopup && <LanguageDropdown setIsPopup={setIsPopup} />}
       </div>
 
       <Outlet />
