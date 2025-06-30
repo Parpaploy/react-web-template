@@ -1,12 +1,32 @@
 import { createBrowserRouter } from "react-router-dom";
-import Navbar from "../../global/components/navbar";
-import Template from "../../pages/template";
 import Homepage from "../../pages/homepage";
+import PrivateLayout from "../../layouts/private-layout";
+import Template from "../../pages/template";
+import PublicLayout from "../../layouts/public-layout";
+import PublicNavbar from "../../layouts/public-navbar";
+import PrivateNavbar from "../../layouts/private-navbar";
 
 export const router = createBrowserRouter([
   {
     path: "",
-    element: <Navbar />,
-    children: [{ path: "", element: <Homepage /> }],
+    element: <PublicLayout />,
+    children: [
+      {
+        path: "",
+        element: <PublicNavbar />,
+        children: [{ path: "", element: <Template /> }],
+      },
+    ],
+  },
+  {
+    path: "/private",
+    element: <PrivateLayout />,
+    children: [
+      {
+        path: "",
+        element: <PrivateNavbar />,
+        children: [{ path: "", element: <Homepage /> }],
+      },
+    ],
   },
 ]);

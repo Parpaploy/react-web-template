@@ -6,7 +6,7 @@ export default function Homepage() {
   const currentLanguage = i18n.language;
 
   return (
-    <div className="flex flex-col justify-start items-center w-full h-screen">
+    <div className="w-full max-w-[1920px] h-[90svh] mx-auto flex flex-col justify-start items-center">
       <h1 className="font-extrabold text-4xl">{t("header")}</h1>
       <h2 className="font-bold text-2xl">Homepage</h2>
 
